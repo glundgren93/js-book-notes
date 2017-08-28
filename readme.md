@@ -78,3 +78,17 @@ var myVariable = result || 5; // if result exists, use it. otherwise use 5 as de
 - It can specify a list of parameters that will act as variables initialized by the invocation arguments.
 
 ## Chapter 3 - Objects
+
+- JS simple types:
+  * numbers (**object-like**, as they have methods, but are **immutable**)
+  * strings (**object-like**, as they have methods, but are **immutable**)
+  * booleans (**object-like**, as they have methods, but are **immutable**)
+  * null
+  * undefined
+- All other values are objects:
+  * arrays
+  * functions
+  * regular expressions
+  * objects
+- Objects are **mutable** keyed collections.
+- An object is a container of properties, where a property has a name (any string) and a value (anything except undefined).
