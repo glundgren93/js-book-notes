@@ -92,3 +92,21 @@ var myVariable = result || 5; // if result exists, use it. otherwise use 5 as de
   * objects
 - Objects are **mutable** keyed collections.
 - An object is a container of properties, where a property has a name (any string) and a value (anything except undefined).
+- In JS, one object can inherit properties of another object from their prototype. This can reduce **initialization time** and **memory consumption**.
+
+Objects are passed around by reference. They are **never copied**.
+
+```javascript
+var myObj = {
+  name: "Gabriel",
+  role: "dev"
+};
+
+var clone = myObj;
+clone.age = 23;
+var age = myObj.age;
+  // age is 23, because myObj and clone
+  // are references to the same object.
+```
+
+"Every object is linked to a prototype object from which it can inherit properties."
