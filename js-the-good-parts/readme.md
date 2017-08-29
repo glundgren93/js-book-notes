@@ -94,6 +94,8 @@ var myVariable = result || 5; // if result exists, use it. otherwise use 5 as de
 - An object is a container of properties, where a property has a name (any string) and a value (anything except undefined).
 - In JS, one object can inherit properties of another object from their prototype. This can reduce **initialization time** and **memory consumption**.
 
+### Reference
+
 Objects are passed around by reference. They are **never copied**.
 
 ```javascript
@@ -109,4 +111,44 @@ var age = myObj.age;
   // are references to the same object.
 ```
 
-"Every object is linked to a prototype object from which it can inherit properties."
+### Prototype
+
+- "Every object is linked to a prototype object from which it can inherit properties."
+- The prototype is used only in **retrieval**. If we try to retrieve a property value from an object, and if the object does not contain this property, then **JS will go up the prototype chain and search for this property until it is found**. If the property does not exist, then the result will be _undefined_.
+- Prototype has a dynamic relationship. If a new property is added to a prototype, that property will be **immediately visible** to all objects in the prototype chain.
+
+### Reflection
+
+- Reflection is used to determine which properties an object has.
+- To determine the type of a property, the `typeof` operator can be used. **Any property on the prototype chain can produce a value**.
+- The `hasOwnProperty` method does not look at the prototype chain. It will return true if the property exists in the object.
+
+### Enumeration
+
+- `for in` loops over all property names in an object, including functions and prototype properties.
+- To filter out the values you don't want, use `typeof` or `hasOwnProperty`.
+- One way to avoid looping over properties from the prototype chain is using `for` instead.
+```javascript
+var i;
+var properties = [
+	'day', 'month', 'year'
+	];
+for (i = 0; i < properties.length; i++) {
+	document.writeIn(properties[i] + ':' + today[properties[i]]);
+}
+```
+
+### Delete
+
+- The `delete` operator can be used to remove a property from an object.
+- It will remove a property from the object if it has one.
+- It will not touch any of the objects up the prototype chain.
+- If a property exists in the object and on its prototype, deleting it from the object will cause the prototype property to be retrieved.
+
+
+### Global Abatement
+
+- Global variables weaken the resiliency of programs and **should be avoided**.
+- One way to minimize the use of global variables is creating a single global variable for your app. This variable will become the container of all info your app needs.
+
+ 
